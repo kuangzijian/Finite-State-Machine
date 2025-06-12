@@ -1,0 +1,65 @@
+Metadata-Version: 2.4
+Name: finite-state-machine
+Version: 0.1.0
+Summary: A generic Finite State Machine implementation with mod-three example
+License-Expression: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Requires-Dist: pytest>=7.0; extra == "test"
+
+# Python Finite State Machine Implementation
+
+This is a Python implementation of the generic Finite State Machine (FSM) with a specific implementation for solving the mod-three problem.
+
+## Project Structure
+```
+FiniteStateMachine.Python/
+├── fsm/
+│   ├── __init__.py           # Package exports
+│   ├── state.py             # Abstract State interface
+│   ├── finite_state_machine.py  # Generic FSM implementation
+│   └── mod_three_state.py   # Mod-three specific implementation
+├── tests/
+│   └── test_mod_three.py    # Unit tests
+└── pyproject.toml           # Project configuration
+```
+
+## Requirements
+- Python 3.8 or later
+- pytest (for running tests)
+
+## Installation
+From the project directory:
+```bash
+pip install -e .
+```
+
+For development (includes test dependencies):
+```bash
+pip install -e ".[test]"
+```
+
+## Usage Example
+```python
+from fsm import FiniteStateMachine, S0
+
+# Create an instance of FSM with initial state S0
+fsm = FiniteStateMachine(S0)
+
+# Process a binary number and get its remainder when divided by 3
+binary_number = "1101"  # 13 in decimal
+remainder = fsm.process_inputs(binary_number)  # Returns 1 (13 % 3 = 1)
+```
+
+## Running Tests
+```bash
+pytest
+```
+
+## Design Features
+1. **Type Hints**: Uses Python's type system for better IDE support and code safety
+2. **Generic Implementation**: FSM can work with any input/output types
+3. **State Pattern**: Uses the State design pattern to encapsulate state-specific behavior
+4. **Immutable States**: Each state is effectively immutable after initialization
+5. **Extensible Design**: New FSM implementations can be created by implementing the State interface

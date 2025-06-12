@@ -72,3 +72,67 @@ int remainder = fsm.ProcessInputs(binaryNumber);  // Returns 1
 2. **State Pattern**: Uses the State design pattern to encapsulate state-specific behavior.
 3. **Immutable States**: Each state is immutable and shared across instances.
 4. **Extensible Design**: New FSM implementations can be created by implementing the `IState` interface.
+
+## Python Implementation
+
+A Python version of this project is available in the `FiniteStateMachine.Python` directory.
+
+### Python Setup and Installation
+
+1. **Install Python**:
+   - Download Python 3.8+ from [python.org](https://www.python.org/downloads/)
+   - During installation:
+     - ✅ Check "Add Python to PATH"
+     - ✅ Check "Install pip"
+
+2. **Verify Python Installation**:
+   ```powershell
+   python --version
+   pip --version
+   ```
+
+3. **Create and Activate Virtual Environment**:
+   ```powershell
+   cd FiniteStateMachine.Python
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   python -m pip install --upgrade pip
+   ```
+
+4. **Install Package**:
+   ```powershell
+   pip install -e ".[test]"
+   ```
+
+### Running Python Tests
+
+1. **With Virtual Environment Activated**:
+   ```powershell
+   python -m pytest
+   ```
+
+2. **With Verbose Output**:
+   ```powershell
+   python -m pytest -v
+   ```
+
+### Python Usage Example
+```python
+from fsm import FiniteStateMachine, S0
+
+# Create an instance of FSM with initial state S0
+fsm = FiniteStateMachine(S0)
+
+# Process a binary number and get its remainder when divided by 3
+binary_number = "1101"  # 13 in decimal
+remainder = fsm.process_inputs(binary_number)  # Returns 1
+```
+
+### Troubleshooting Python Setup
+
+If you encounter activation issues:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+Then try activating the virtual environment again.

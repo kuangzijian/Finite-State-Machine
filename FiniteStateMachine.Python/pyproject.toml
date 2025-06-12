@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "finite-state-machine"
+version = "0.1.0"
+description = "A generic Finite State Machine implementation with mod-three example"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+dependencies = []
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
